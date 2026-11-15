@@ -1,3 +1,6 @@
+接下来我将会告诉你花舞中的一些饭制冷知识
+
+1、移动方块
 怎么去用移动的花舞方块呢
 [tile_moving blocks_left.png] <-向左移动
 [tile_moving blocks_right.png] <-向右移动
@@ -14,3 +17,8 @@
 [tile_89.png][tile_90.png] 如左图所示
 效果如下：
 [movingblock.gif]
+
+2、可用的非花舞主题障碍列表
+[aloneflowerinfd.png] alone的花朵
+[fallingcubesinfd.png] faded的掉落方块
+[twiblockinfd.png] alone的闪烁方块
