@@ -1,0 +1,2 @@
+How to use the moving block in FLOWER DANCE
+[tile_moving blocks_left.png] [tile_moving blocks_right.png]
