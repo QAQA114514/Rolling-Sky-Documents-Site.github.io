@@ -108,7 +108,6 @@ body{
     max-width:900px;
     margin:0 auto;
     font-size:1.05rem;
-    /* 重点：保留你txt里的换行，同时允许图文同行 */
     white-space: pre-wrap;
     word-break: break-word;
 }
@@ -129,7 +128,7 @@ body{
     background:#3388ff;
 }
 
-/* 图文同行优化，缩小外边距 */
+/* 图文同行，图片无圆角 */
 .doc-image-wrap{
     display: inline-block;
     margin: 0 4px;
@@ -138,7 +137,7 @@ body{
 .doc-img{
     max-width: 140px;
     max-height: 140px;
-    border-radius: 8px;
+    border-radius: 0;
     vertical-align: middle;
 }
 </style>
