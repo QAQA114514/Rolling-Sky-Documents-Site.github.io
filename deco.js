@@ -4,7 +4,7 @@ const buttonConfig = [
         file: "How To Use Flower Dance Moving Blocks",
         text: "How To Use Flower Dance Moving Blocks",
         bgImg: "img/花舞.png",
-        border: "2px solid #ff76af"
+        border: "3px solid #ff76af"
     }
 ];
 // =======================================================
@@ -35,37 +35,33 @@ async function loadDoc(filename, bgUrl){
     const res = await fetch(`docs/${filename}.txt`);
     const rawText = await res.text();
 
-    // 按 [图片名.png] 分割文本，交替生成文本节点 / 图片元素
+    const escapeHtml = (str) => {
+        return str
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    };
+
     const parts = rawText.split(/(\[.*?\])/);
-    const frag = document.createDocumentFragment();
+    let html = "";
 
     for(const part of parts){
         if(/^\[.*\]$/.test(part)){
-            // 是图片标记
-            const picName = part.slice(1,-1);
-            const wrap = document.createElement("div");
-            wrap.className = "doc-image-wrap";
-            const img = document.createElement("img");
-            img.className = "doc-img";
-            img.src = `pic/${picName}`;
-            img.alt = picName;
-            img.onerror = function(){
-                wrap.innerHTML = `<p style="color:#ff8888;margin:4px 0;">图片丢失：${picName}</p>`;
-            }
-            wrap.appendChild(img);
-            frag.appendChild(wrap);
+            const picName = part.slice(1, -1);
+            html += `
+                <span class="doc-image-wrap">
+                    <img src="pic/${picName}" alt="${picName}" class="doc-img"
+                         onerror="this.outerHTML='<span style=color:#ff8888>图片丢失：${escapeHtml(picName)}</span>'">
+                </span>
+            `;
         }else{
-            // 普通文字，保留原始换行，用 pre 风格文本节点
-            if(part.length>0){
-                const textSpan = document.createElement("div");
-                textSpan.style.whiteSpace = "pre‑wrap";
-                textSpan.textContent = part;
-                frag.appendChild(textSpan);
-            }
+            html += escapeHtml(part).replace(/\n/g, "<br>");
         }
     }
 
-    docContent.appendChild(frag);
+    docContent.innerHTML = html;
 
     setTimeout(()=>{
         docView.classList.add('show');
