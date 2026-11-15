@@ -1,13 +1,12 @@
-// ========== 按钮配置列表，在这里新增/修改按钮 ==========
+// deco.js 完整替换
 const buttonConfig = [
     {
         file: "How To Use Flower Dance Moving Blocks",
         text: "How To Use Flower Dance Moving Blocks",
         bgImg: "img/花舞.png",
-        border: "3px solid #ff76af"
+        border: "2px solid #ff76af"
     }
 ];
-// =======================================================
 const homeEl = document.getElementById('home');
 const docView = document.getElementById('doc-view');
 const docContent = document.getElementById('doc-content');
@@ -50,19 +49,13 @@ async function loadDoc(filename, bgUrl){
     for(const part of parts){
         if(/^\[.*\]$/.test(part)){
             const picName = part.slice(1, -1);
-            html += `
-                <span class="doc-image-wrap">
-                    <img src="pic/${picName}" alt="${picName}" class="doc-img"
-                         onerror="this.outerHTML='<span style=color:#ff8888>图片丢失：${escapeHtml(picName)}</span>'">
-                </span>
-            `;
+            html += `<span class="doc-image-wrap"><img src="pic/${picName}" alt="${picName}" class="doc-img" onerror="this.outerHTML='<span style=color:#ff8888>图片丢失：${escapeHtml(picName)}</span>'"></span>`;
         }else{
-            html += escapeHtml(part).replace(/\n/g, "<br>");
+            html += escapeHtml(part);
         }
     }
 
     docContent.innerHTML = html;
-
     setTimeout(()=>{
         docView.classList.add('show');
     },450);
