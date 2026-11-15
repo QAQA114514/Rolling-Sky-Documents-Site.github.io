@@ -1,2 +1,11 @@
-How to use the moving block in FLOWER DANCE
-[tile_moving blocks_left.png] [tile_moving blocks_right.png]
+怎么去用移动的花舞方块呢
+[tile_moving blocks_left.png] <-向左移动
+[tile_moving blocks_right.png] <-向右移动
+这种移动方块分两种
+移动速度快的和移动速度慢的
+移动速度快的要用编号为541和542的方块
+也就是alone的方块
+[tile_541.png] 如左图所示
+[tile_542.png]
+效果如下：
+[movingblockalone.gif]
