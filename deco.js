@@ -2,7 +2,7 @@
 const buttonConfig = [
     {
         file: "How To Use Flower Dance Moving Blocks",
-        text: "How To Use Flower Dance Moving Blocks",
+        text: "如何放置花舞移动方块",
         bgImg: "img/花舞.png",
         border: "2px solid #ff76af"
     }
