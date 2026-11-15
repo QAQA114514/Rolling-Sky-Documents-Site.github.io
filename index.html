@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,6 @@ body{
     transition: background 0.4s ease;
 }
 
-/* 文档页背景蒙版 */
 #bg-mask{
     position:fixed;
     inset:0;
@@ -46,7 +45,7 @@ body{
     content:"";
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,0.65); /* 变暗蒙版，数字越大越暗 */
+    background:rgba(0,0,0,0.65);
 }
 
 #home{
@@ -105,10 +104,13 @@ body{
 }
 #doc-content{
     font-family:SenRegular;
-    line-height:1.7;
+    line-height:1.8;
     max-width:900px;
     margin:0 auto;
     font-size:1.05rem;
+    /* 重点：保留你txt里的换行，同时允许图文同行 */
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 .back-btn{
     font-family:SenBold;
@@ -122,21 +124,20 @@ body{
     font-size:1rem;
     position:relative;
     z-index: 9999;
-    pointer-events: auto !important;
 }
 .back-btn:hover{
     background:#3388ff;
 }
 
-/* 图文同一行样式 */
+/* 图文同行优化，缩小外边距 */
 .doc-image-wrap{
     display: inline-block;
-    margin: 0 6px;
+    margin: 0 4px;
     vertical-align: middle;
 }
 .doc-img{
-    max-width: 260px;
-    max-height: 180px;
+    max-width: 140px;
+    max-height: 140px;
     border-radius: 8px;
     vertical-align: middle;
 }
