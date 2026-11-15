@@ -8,9 +8,9 @@
 移动速度快的和移动速度慢的
 移动速度快的要用编号为541和542的方块
 也就是alone的方块
-[tile_541.png][tile_542.png] 如左图所示
+[tile_541.png][tile_542.png][tile_543.png][tile_544.png] 如左图所示
 效果如下：
-[movingblockalone.gif]
+[movingblockalone.gif][forwardblockinfd.gif]
 -----------------------------
 如果要那种移动速度慢的
 就用编号为89和90的地编
